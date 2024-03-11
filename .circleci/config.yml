@@ -19,16 +19,16 @@ jobs:
             unzip gradle-$GRADLE_VERSION-bin.zip
       - run:
           name: Download Dependencies
-          command: $GRADLE_HOME/bin/gradle androidDependencies
+          command: |
+            git clone https://github.com/audacious-software/PassiveDataKit-Android.git passive-data-kit
+            $GRADLE_HOME/bin/gradle androidDependencies
       - save_cache:
           paths:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}
       - run:
           name: Build
-          command: |
-            git clone https://github.com/audacious-software/PassiveDataKit-Android.git passive-data-kit
-            $GRADLE_HOME/bin/gradle assembleDebug
+          command: $GRADLE_HOME/bin/gradle assembleDebug
       - run:
           name: Run Tests
           command: $GRADLE_HOME/bin/gradle lint test
