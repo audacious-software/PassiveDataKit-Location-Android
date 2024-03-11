@@ -8,4 +8,8 @@
 
     <!-- Open Weather Generator -->
     <string name="pdk_generator_open_weather_create_history_table" translatable="false">CREATE TABLE open_weather_history(_id INTEGER PRIMARY KEY AUTOINCREMENT, fetched INTEGER, transmitted INTEGER, observed INTEGER, latitude REAL, longitude REAL, timezone TEXT, temperature REAL, apparent_temperature REAL, humidity REAL, dew_point REAL, wind_speed REAL, wind_gust_speed REAL, wind_bearing REAL, cloud_cover REAL, uv_index REAL, air_pressure REAL, visibility REAL, full_reading TEXT);</string>
+
+    <!-- Google Places Generator -->
+    <string name="pdk_generator_google_places_create_history_table" translatable="false">CREATE TABLE history(_id INTEGER PRIMARY KEY AUTOINCREMENT, fetched INTEGER, transmitted INTEGER, observed INTEGER, current_place_latitude REAL, current_place_longitude REAL, current_place_types TEXT, current_place_confidence REAL);</string>
+
 </resources>

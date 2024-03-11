@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="diagnostic_missing_location_permission_title">Location Permission Required</string>
+    <string name="diagnostic_missing_location_permission">Please grant the app permission to access location services on this device.</string>
+</resources>
