@@ -380,7 +380,7 @@ public class Location extends Generator implements LocationListener, android.loc
             int permissionCheck = ContextCompat.checkSelfPermission(this.mContext, Manifest.permission.ACCESS_FINE_LOCATION);
 
             if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-                actions.add(new DiagnosticAction(me.mContext.getString(R.string.diagnostic_missing_location_permission_title), me.mContext.getString(R.string.diagnostic_missing_location_permission), new Runnable() {
+                actions.add(new DiagnosticAction(me.mContext.getString(com.audacious_software.passive_data_kit.R.string.diagnostic_missing_location_permission_title), me.mContext.getString(com.audacious_software.passive_data_kit.R.string.diagnostic_missing_location_permission), new Runnable() {
                     @Override
                     public void run() {
                         handler.post(new Runnable() {
@@ -633,13 +633,13 @@ public class Location extends Generator implements LocationListener, android.loc
 
         long storage = me.storageUsed();
 
-        String storageDesc = context.getString(R.string.label_storage_unknown);
+        String storageDesc = context.getString(com.audacious_software.passive_data_kit.R.string.label_storage_unknown);
 
         if (storage >= 0) {
             storageDesc = Humanize.binaryPrefix(storage);
         }
 
-        dateLabel.setText(context.getString(R.string.label_storage_date_card, Generator.formatTimestamp(context, timestamp / 1000.0), storageDesc));
+        dateLabel.setText(context.getString(com.audacious_software.passive_data_kit.R.string.label_storage_date_card, Generator.formatTimestamp(context, timestamp / 1000.0), storageDesc));
 
         final DisplayMetrics metrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -948,8 +948,8 @@ public class Location extends Generator implements LocationListener, android.loc
 
         DataDisclosureDetailActivity.Action disclosure = new DataDisclosureDetailActivity.Action();
 
-        disclosure.title = context.getString(R.string.label_data_collection_description);
-        disclosure.subtitle = context.getString(R.string.label_data_collection_description_more);
+        disclosure.title = context.getString(com.audacious_software.passive_data_kit.R.string.label_data_collection_description);
+        disclosure.subtitle = context.getString(com.audacious_software.passive_data_kit.R.string.label_data_collection_description_more);
 
         WebView disclosureView = new WebView(context);
         disclosureView.loadUrl("file:///android_asset/html/passive_data_kit/generator_location_disclosure.html");
@@ -966,12 +966,12 @@ public class Location extends Generator implements LocationListener, android.loc
 
         final ListView listView = new ListView(context);
 
-        final ArrayAdapter<Integer> accuracyAdapter = new ArrayAdapter<Integer>(context, R.layout.row_disclosure_location_accuracy_pdk, options) {
+        final ArrayAdapter<Integer> accuracyAdapter = new ArrayAdapter<Integer>(context, com.audacious_software.passive_data_kit.R.layout.row_disclosure_location_accuracy_pdk, options) {
             @NonNull
             @SuppressLint("InflateParams")
             public View getView (final int position, View convertView, @NonNull ViewGroup parent) {
                 if (convertView == null) {
-                    convertView = LayoutInflater.from(context).inflate(R.layout.row_disclosure_location_accuracy_pdk, null);
+                    convertView = LayoutInflater.from(context).inflate(com.audacious_software.passive_data_kit.R.layout.row_disclosure_location_accuracy_pdk, null);
                 }
 
                 final Integer option = options[position];
@@ -979,7 +979,7 @@ public class Location extends Generator implements LocationListener, android.loc
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 int selected = prefs.getInt(Location.ACCURACY_MODE, Location.ACCURACY_BEST);
 
-                CheckBox checked = convertView.findViewById(R.id.action_checked);
+                CheckBox checked = convertView.findViewById(com.audacious_software.passive_data_kit.R.id.action_checked);
 
                 checked.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
@@ -990,8 +990,8 @@ public class Location extends Generator implements LocationListener, android.loc
 
                 checked.setChecked(selected == option);
 
-                TextView title = convertView.findViewById(R.id.action_title);
-                TextView description = convertView.findViewById(R.id.action_description);
+                TextView title = convertView.findViewById(com.audacious_software.passive_data_kit.R.id.action_title);
+                TextView description = convertView.findViewById(com.audacious_software.passive_data_kit.R.id.action_description);
 
                 if (option == Location.ACCURACY_BEST) {
                     title.setText(R.string.label_data_collection_location_accuracy_best);
@@ -1020,7 +1020,7 @@ public class Location extends Generator implements LocationListener, android.loc
                             builder.setTitle(R.string.title_location_accuracy_best);
                             builder.setMessage(R.string.message_location_accuracy_best);
 
-                            builder.setPositiveButton(R.string.action_continue, new DialogInterface.OnClickListener() {
+                            builder.setPositiveButton(com.audacious_software.passive_data_kit.R.string.action_continue, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     SharedPreferences.Editor e = prefs.edit();
@@ -1045,7 +1045,7 @@ public class Location extends Generator implements LocationListener, android.loc
 
                             rangeField.setText("" + existingRange);
 
-                            builder.setPositiveButton(R.string.action_continue, new DialogInterface.OnClickListener() {
+                            builder.setPositiveButton(com.audacious_software.passive_data_kit.R.string.action_continue, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     SharedPreferences.Editor e = prefs.edit();
@@ -1075,7 +1075,7 @@ public class Location extends Generator implements LocationListener, android.loc
 
                             locationField.setText(existingLocation);
 
-                            builder.setPositiveButton(R.string.action_continue, new DialogInterface.OnClickListener() {
+                            builder.setPositiveButton(com.audacious_software.passive_data_kit.R.string.action_continue, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     SharedPreferences.Editor e = prefs.edit();
@@ -1114,7 +1114,7 @@ public class Location extends Generator implements LocationListener, android.loc
                             builder.setTitle(R.string.title_location_accuracy_disabled);
                             builder.setMessage(R.string.message_location_accuracy_disabled);
 
-                            builder.setPositiveButton(R.string.action_continue, new DialogInterface.OnClickListener() {
+                            builder.setPositiveButton(com.audacious_software.passive_data_kit.R.string.action_continue, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     SharedPreferences.Editor e = prefs.edit();
@@ -1423,7 +1423,7 @@ public class Location extends Generator implements LocationListener, android.loc
 
     @SuppressWarnings("unused")
     public static void bindDisclosureViewHolder(final GeneratorViewHolder holder) {
-        TextView generatorLabel = holder.itemView.findViewById(R.id.label_generator);
+        TextView generatorLabel = holder.itemView.findViewById(com.audacious_software.passive_data_kit.R.id.label_generator);
 
         generatorLabel.setText(Location.getGeneratorTitle(holder.itemView.getContext()));
     }

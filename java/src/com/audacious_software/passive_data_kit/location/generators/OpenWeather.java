@@ -195,7 +195,7 @@ public class OpenWeather extends Generator {
             int permissionCheck = ContextCompat.checkSelfPermission(this.mContext, Manifest.permission.ACCESS_FINE_LOCATION);
 
             if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-                actions.add(new DiagnosticAction(me.mContext.getString(R.string.diagnostic_missing_location_permission_title), me.mContext.getString(R.string.diagnostic_missing_location_permission), new Runnable() {
+                actions.add(new DiagnosticAction(me.mContext.getString(com.audacious_software.passive_data_kit.R.string.diagnostic_missing_location_permission_title), me.mContext.getString(com.audacious_software.passive_data_kit.R.string.diagnostic_missing_location_permission), new Runnable() {
 
                     @Override
                     public void run() {
