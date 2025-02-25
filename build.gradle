@@ -7,28 +7,24 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.5.2'
+        classpath 'com.android.tools.build:gradle:8.8.1'
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        //noinspection JcenterRepositoryObsolete
-        jcenter()
-        maven {
-            url "https://jitpack.io"
+repositories {
+    google()
+    mavenCentral()
+    maven {
+        url "https://jitpack.io"
+    }
+    maven {
+        url 'https://api.mapbox.com/downloads/v2/releases/maven'
+        authentication {
+            basic(BasicAuthentication)
         }
-        maven {
-            url 'https://api.mapbox.com/downloads/v2/releases/maven'
-            authentication {
-                basic(BasicAuthentication)
-            }
-            credentials {
-                username = 'mapbox'
-                password = project.properties['MAPBOX_DOWNLOADS_TOKEN']
-            }
+        credentials {
+            username = 'mapbox'
+            password = project.properties['MAPBOX_DOWNLOADS_TOKEN']
         }
     }
 }
@@ -38,8 +34,8 @@ android {
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 34
-        compileSdk 34
+        targetSdkVersion 35
+        compileSdk 35
 
         versionCode 1
         versionName "1.0"
